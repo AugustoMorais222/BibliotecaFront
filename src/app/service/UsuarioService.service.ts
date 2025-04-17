@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Usuario } from '../models/usuario';
+import { Usuario } from '../models/Usuario';
 
 @Injectable({
   providedIn: 'root'
@@ -15,15 +15,15 @@ export class UsuarioService {
     return  this.http.post<Usuario>(this.baseUrl, usuario);
   }
 
-  update(id: number, usuario: Usuario): Observable<Usuario>{
+  update(id: string, usuario: Usuario): Observable<Usuario>{
     return this.http.put<Usuario>(`${this.baseUrl}/${id}`,usuario)
   }
 
-  delete(id: number): Observable<void>{
+  delete(id: string): Observable<void>{
     return this.http.delete<void>(`${this.baseUrl}/${id}`)
   }
 
-  findById(id: number): Observable<Usuario>{
+  findById(id: string): Observable<Usuario>{
     return this.http.get<Usuario>(`${this.baseUrl}/${id}`)
   }
 
